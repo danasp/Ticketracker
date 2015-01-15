@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+<!doctype html>
+
+<html>
+<head>
+    <meta charset="utf8">
+    <title>{% block title %}Сообщить о проблеме{% endblock %}</title>
+</head>
+<body>
+{% block content %}
+
+<form action="/tickets/add_ticket/" method="post" enctype="multipart/form-data">
+{% csrf_token %}
+{{form.as_p}}
+
+<input type="submit" name="submit" value="Сообщить о проблеме">
+</form>
+{% endblock %}
+</body>
+</html>

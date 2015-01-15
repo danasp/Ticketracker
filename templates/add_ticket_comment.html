@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+<!doctype html>
+
+<html>
+<head>
+    <meta charset="utf8">
+    <title>{% block title %}Комментарий к тикету{% endblock %}</title>
+</head>
+<body>
+{% block content %}
+
+<form action='/tickets/add_comment/{{ticket.id}}/' method="post">
+{% csrf_token %}
+{{form.as_p}}
+
+<input type="submit" name="submit" value="Добавить комментарий">
+</form>
+{% endblock %}
+</body>
+</html>
